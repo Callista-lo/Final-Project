@@ -1,40 +1,123 @@
 import java.util.Scanner;
-import java.lang.Integer;
 
 public class AttemptIG {
     
 
-  //  public static  writeToBoard(int y, String Callie, String [] Callista){
-
+    public static boolean isWinner(String [][] Callista){
         
-      //  String InComing = Integer.toString(y);
-        
-       
-//    }
-
-    public static void printBoard(String[] Board){
-        System.out.println ("     |   |    ");
-        System.out.println ("   1 | 2 | 3  ");
-        System.out.println (" ----+---+---- ");
-        System.out.println ("   4 | 5 | 6  ");
-        System.out.println (" ----+---+---- ");
-        System.out.println ("   7 | 8 | 9  ");
-        System.out.println ("     |   |    ");
-String board = "";
-       for(int c = 0; c < 9; c++){
-        for(int i = 0; i < 3; i++)
-        {
-             board = Board[c] + "|";
+        if (Callista [0][0] == Callista [1][1] && Callista [0][0] == Callista [2][2]){
+            return true;
         }
-        System.out.println(board);
-       }
+        if (Callista [0][0] == Callista [1][0] && Callista [0][0] == Callista [2][0]){
+            return true;
+        }
+        if (Callista [0][0] == Callista [0][1] && Callista [0][0] == Callista [0][2]){
+            return true;
+        }
+
+
+        if (Callista [0][1] == Callista [1][1] && Callista [0][1] == Callista [2][1]){
+            return true;
+        }
+        if (Callista [0][1] == Callista [0][0] && Callista [0][1] == Callista [0][2]){
+            return true;
+        }
+
+
+        if (Callista [0][2] == Callista [1][2] && Callista [0][2] == Callista [2][2]){
+            return true;
+        }
+        if (Callista [0][2] == Callista [1][1] && Callista [0][2] == Callista [2][0]){
+            return true;
+        }
+        if (Callista [0][2] == Callista [0][0] && Callista [0][2] == Callista [0][1]){
+            return true;
+        }
+
+        
+        if (Callista [1][0] == Callista [1][1] && Callista [1][0] == Callista [1][2]){
+            return true;
+        }
+        if (Callista [1][0] == Callista [0][0] && Callista [1][0] == Callista [2][0]){
+            return true;
+        }
+
+
+        if (Callista [1][1] == Callista [0][1] && Callista [1][1] == Callista [2][1]){
+            return true;
+        }
+        if (Callista [1][1] == Callista [1][0] && Callista [1][1] == Callista [1][2]){
+            return true;
+        }
+        if (Callista [1][1] == Callista [0][2] && Callista [1][1] == Callista [2][0]){
+            return true;
+        }
+        if (Callista [1][1] == Callista [0][0] && Callista [1][1] == Callista [2][2]){
+            return true;
+        }
+
+
+        if (Callista [1][2] == Callista [0][2] && Callista [1][2] == Callista [2][2]){
+            return true;
+        }
+        if (Callista [1][2] == Callista [1][0] && Callista [1][2] == Callista [1][1]){
+            return true;
+        }
+
+        
+        if (Callista [2][0] == Callista [2][1] && Callista [2][0] == Callista [2][2]){
+            return true;
+        }
+        if (Callista [2][0] == Callista [1][0] && Callista [2][0] == Callista [0][0]){
+            return true;
+        }
+        if (Callista [2][0] == Callista [1][1] && Callista [2][0] == Callista [0][2]){
+            return true;
+        }
+
+
+        if (Callista [2][1] == Callista [1][1] && Callista [2][1] == Callista [0][1]){
+            return true;
+        }
+        if (Callista [2][1] == Callista [2][0] && Callista [2][1] == Callista [2][2]){
+            return true;
+        }
+
+
+        if (Callista [2][2] == Callista [2][1] && Callista [2][2] == Callista [2][0]){
+            return true;
+        }
+        if (Callista [2][2] == Callista [1][2] && Callista [2][2] == Callista [0][2]){
+            return true;
+        }
+        if (Callista [2][2] == Callista [0][0] && Callista [2][2] == Callista [1][1]){
+            return true;
+        }
+
+        return false;
+       
+   }
+
+    public static boolean isX(boolean T){
+        return !T;
+    }
+
+    public static void printBoard(String[][] Board){
+  
+       System.out.println ("     |   |    ");
+       System.out.println ("   " + Board[0][0] + " | " + Board[0][1] + " | " + Board[0][2] + "");
+       System.out.println (" ----+---+---- ");
+       System.out.println ("   " + Board[1][0] + " | " + Board[1][1] + " | " + Board[1][2] + "");
+       System.out.println (" ----+---+---- ");
+       System.out.println ("   " + Board[2][0] + " | " + Board[2][1] + " | " + Board[2][2] + "");
+       System.out.println ("     |   |    ");
+
     }
 
     public static void main(String[] args){  
     
-        Boolean isX = true;
-       // String[] Callista = new String[9];
-      String[] Callista = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        Boolean boardValue = true;
+      String[][] Callista = {{"1", "2", "3"}, { "4", "5", "6"}, {"7", "8", "9"}};
 
         System.out.println ();
         System.out.println ("WELCOME TO CALLISTA'S TTT (Tic Tac Toe) GAME!!!");
@@ -49,39 +132,59 @@ String board = "";
         System.out.println ();
         System.out.println ("First player is X, Second player is O.");
         System.out.println ();
-        System.out.println ("Please insert a number.");
+        System.out.println ("Please select a number.");
         System.out.println ();
         
         int n = 0;
         Scanner user = new Scanner(System.in);
         while (n < 9){
+             String selectedSpot = user.nextLine();
+
+            if (boardValue){
+                for(int c = 0; c < 3; c++){
+                    for(int i = 0; i < 3; i++)
+                    {
+                        if (Callista[c][i].equals(selectedSpot)){
+                            Callista[c][i] = Callista[c][i].replace(selectedSpot, "X");   
+                           // isWinner(Callista, c, i);
+                            break;  
+                       }  
+                    }
+                }
+            printBoard(Callista);
             
-             int c = user.nextInt();
-            if (isX == true){
-                for(int i = 0; i < 9; i++){
-                   if (Callista[i] == Integer.toString(c)){
-                        Callista[i] = "X";                      
-                  }
-                //  System.out.println(Callista[i]);
+            isWinner(Callista);
+                if (isWinner(Callista)){
+                    System.out.println("YAY!! You won");
+                    break;
                 }
-               // Callista = writeToBoard(c, "X");
-                printBoard(Callista); 
+
+            boardValue = isX(boardValue); 
             }
+                
             else{
-
-                for(int i = 0; i < 9; i++){
-                    if (Callista[i] == Integer.toString(c)){
-                        Callista[i] = "O";
-                       
-                  }
+                for(int c = 0; c < 3; c++){
+                    for(int i = 0; i < 3; i++)
+                    {
+                        if (Callista[c][i].equals(selectedSpot)){
+                            Callista[c][i] = Callista[c][i].replace(selectedSpot, "O");  
+                            break;   
+                       }  
+                    }
                 }
-               // Callista = writeToBoard(c, "X");
-                printBoard(Callista); 
-            }
+            printBoard(Callista);
 
-            isX = !isX;           
+            isWinner(Callista);
+                if (isWinner(Callista)){
+                    System.out.println("YAY!! You won");
+                    break;
+                }
+            boardValue = isX(boardValue);       
             n++;
         }
-       user.close();
+      // user.close();
     }
  } 
+
+
+}
